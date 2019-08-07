@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.CRMBoot.dao.CustomerDaoImpl;
 import com.springboot.CRMBoot.entity.Employeeboot;
+import com.springboot.CRMBoot.service.EmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/api")
 public class HomeController {
 
 	@Autowired
-	private CustomerDaoImpl customerDaoImpl;
+	private EmployeeServiceImpl employeeServiceImpl;
 
 	@GetMapping("/")
 	public String home() {
@@ -24,7 +24,7 @@ public class HomeController {
 
 	@GetMapping("/employees")
 	public List<Employeeboot> getAll() {
-		return customerDaoImpl.getAll();
+		return employeeServiceImpl.getAll();
 	}
 
 }

@@ -52,4 +52,42 @@ public class CustomerDaoImpl implements CustomerDao {
 		return employees;
 	}
 
+
+
+	@Override
+	@Transactional
+	public Employeeboot getbyId(int id) {
+		// TODO Auto-generated method stub
+		Session currentSession=entityManager.unwrap(Session.class);
+
+		Employeeboot theEmployee=currentSession.get(Employeeboot.class,id);
+
+		return theEmployee;
+	}
+
+
+
+	@Override
+	@Transactional
+	public void addEmployee(Employeeboot e) {
+		// TODO Auto-generated method stub
+		Session currentSession=entityManager.unwrap(Session.class);
+
+		currentSession.saveOrUpdate( e);
+	}
+
+
+
+	@Override
+	@Transactional
+	public void deleteEmployee(int id) {
+		// TODO Auto-generated method stub
+		
+		Session currentSession=entityManager.unwrap(Session.class);
+
+	Employeeboot empobj=currentSession.get(Employeeboot.class, id);
+		
+		currentSession.delete(empobj);
+	}
+
 }

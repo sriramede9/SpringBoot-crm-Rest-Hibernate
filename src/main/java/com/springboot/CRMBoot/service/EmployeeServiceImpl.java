@@ -5,11 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.CRMBoot.JpaRepositoryDao.EmployeeJpaRepository;
 import com.springboot.CRMBoot.dao.CustomerDaoImpl;
 import com.springboot.CRMBoot.entity.Employeeboot;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+	
+	//@Autowired
+//	private EmployeeJpaRepository eJpaRepository;
 
 	@Autowired
 	private CustomerDaoImpl customerDaoImpl;
@@ -18,6 +22,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employeeboot> getAll() {
 		// TODO Auto-generated method stub
 		return customerDaoImpl.getAll();
+		//return eJpaReposity.findAll(); works
+		
 	}
 
 	@Override
